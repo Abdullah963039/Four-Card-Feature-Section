@@ -1,0 +1,120 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+:root {
+    --red: hsl(0, 78%, 62%);
+    --cyan: hsl(180, 62%, 55%);
+    --blue: hsl(212, 86%, 64%);
+    --orange: hsl(34, 97%, 64%);
+    --very-dark-blue: hsl(234, 12%, 34%);
+    --grayish-blue: hsl(229, 6%, 66%);
+    --very-light-gray: hsl(0, 0%, 98%);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    margin: 0;
+    background-color: var(--very-light-gray);
+}
+
+.challenge {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 30px;
+}
+
+.heading {
+    text-align: center;
+}
+
+.heading h2,
+.cards-container .card .card-title {
+    font-weight: 600;
+    color: var(--very-dark-blue);
+}
+
+.heading h2 {
+    margin-bottom: 1rem;
+}
+
+.heading h2::first-line {
+    font-weight: 200;
+}
+
+.heading p {
+    font-size: 14px;
+    color: var(--grayish-blue);
+    line-height: 1.7;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "one" "two" "three" "four";
+    align-items: center;
+    gap: 1rem;
+}
+
+.cards-container .card {
+    padding: 1.5rem 1.3rem;
+    border-radius: 5px;
+    border-top: 3px solid var(--card-color);
+    display: flex;
+    flex-flow: nowrap column;
+    gap: 0.5rem;
+    background: #fff;
+    box-shadow: 0 8px 20px var(--grayish-blue);
+}
+
+.cards-container .card.one {
+    grid-area: one;
+    --card-color: var(--cyan);
+}
+
+.cards-container .card.two {
+    grid-area: two;
+    --card-color: var(--red);
+}
+
+.cards-container .card.three {
+    grid-area: three;
+    --card-color: var(--orange);
+}
+
+.cards-container .card.four {
+    grid-area: four;
+    --card-color: var(--blue);
+}
+
+.cards-container .card .card-discription {
+    font-size: 12px;
+    color: var(--grayish-blue);
+    line-height: 1.5;
+    margin-bottom: 1.2rem;
+}
+
+.cards-container .card .card-discription+svg {
+    align-self: flex-end;
+}
+
+/* MOBILE_MEDIA = 375px */
+
+@media screen and (min-width: 375px) {
+
+    .cards-container {
+
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: "one two four" "one three four";
+    }
+
+}
